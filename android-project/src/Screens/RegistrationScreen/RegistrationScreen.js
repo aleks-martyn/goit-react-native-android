@@ -10,14 +10,17 @@ import {
   TouchableOpacity,
   View,
   Alert,
-} from 'react-native';
-import { useDispatch } from 'react-redux';
-import { useNavigation } from '@react-navigation/native';
-import { useState } from 'react';
+} from "react-native";
+import { useDispatch } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 export default function RegistrationScreen() {
-    return (
-        <TouchableWithoutFeedback></TouchableWithoutFeedback>
-    )
- }
-
+  return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View>
+        <Text>Registration Screen</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+}
