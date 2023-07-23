@@ -18,6 +18,15 @@ import { Feather, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
 
 export default function CreatePostsScreen() {
+  const navigation = useNavigation();
+
+  const [hasPermission, setHasPermission] = useState(null);
+  const [cameraRef, setCameraRef] = useState(null);
+  const [name, setName] = useState('');
+  const [nameLocation, setNameLocation] = useState('');
+  const [type, setType] = useState(Camera.Constants.Type.back);
+  const [photo, setPhoto] = useState(null);
+
   return (
     <View>
       <Text>CreatePosts Screen</Text>
