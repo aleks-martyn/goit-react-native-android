@@ -12,6 +12,7 @@ const Tab = createBottomTabNavigator();
 const styleScreens = {
   headerStyle: {
     height: 88,
+    
     backgroundColor: "#fff",
     shadowOffset: {
       width: 0,
@@ -49,6 +50,7 @@ export default function Home() {
         component={PostsScreen}
         options={{
           title: "Публікації",
+          headerTitleAlign: "center",
           headerRight: () => (
             <TouchableOpacity onPress={console.log("log out")}>
               <Feather.Button
@@ -63,7 +65,8 @@ export default function Home() {
             <Feather name="grid" size={24} color={color} />
           ),
           tabBarItemStyle: {
-            height: 50,
+            height: 40,
+            borderRadius: 50,
             marginTop: 9,
             marginRight: 10,
             marginLeft: 20,
@@ -75,6 +78,7 @@ export default function Home() {
         component={CreatePostsScreen}
         options={{
           title: "Створити публікацію",
+          headerTitleAlign: "center",
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.navigate("Posts")}>
               <Feather.Button
@@ -89,7 +93,8 @@ export default function Home() {
             <Ionicons name="add" size={24} color={color} />
           ),
           tabBarItemStyle: {
-            height: 50,
+            height: 40,
+            borderRadius: 50,
             marginTop: 9,
             marginHorizontal: 5,
           },
@@ -104,7 +109,8 @@ export default function Home() {
             <Feather name="user" size={24} color={color} />
           ),
           tabBarItemStyle: {
-            height: 50,
+            height: 40,
+            borderRadius: 50,
             marginTop: 9,
             marginRight: 20,
             marginLeft: 10,
