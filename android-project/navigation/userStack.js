@@ -1,8 +1,8 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../src/Screens/Home/Home';
-import MapScreen from '../src/Screens/MapScreen/MapScreen';
-import CommentsScreen from '../src/Screens/CommentsScreen/CommentsScreen';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "../src/Screens/Home/Home";
+import MapScreen from "../src/Screens/MapScreen/MapScreen";
+import CommentsScreen from "../src/Screens/CommentsScreen/CommentsScreen";
 
 const MainStack = createStackNavigator();
 
@@ -19,9 +19,9 @@ export default function UserStack() {
           component={CommentsScreen}
           options={{
             headerShown: true,
-            title: 'Коментарі',
+            title: "Коментарі",
             headerBackTitleVisible: false,
-            headerTintColor: '#212121',
+            headerTintColor: "#212121",
           }}
         />
         <MainStack.Screen
@@ -29,9 +29,9 @@ export default function UserStack() {
           component={MapScreen}
           options={{
             headerShown: true,
-            title: 'Мапа',
+            title: "Мапа",
             headerBackTitleVisible: false,
-            headerTintColor: '#212121',
+            headerTintColor: "#212121",
           }}
         />
       </MainStack.Navigator>
