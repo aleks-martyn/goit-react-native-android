@@ -74,9 +74,26 @@ export default function CreatePostsScreen() {
   };
 
   return (
-    <View>
-      <Text>CreatePosts Screen</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <View style={styles.container}>
+        <Camera type={type} ref={setCameraRef} style={styles.camera}>
+          <View style={styles.photoView}>
+            <TouchableOpacity style={styles.flipContainer} onPress={flipCamera}>
+              <MaterialIcons
+                name="flip-camera-android"
+                size={24}
+                color="#fff"
+              />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.takePhotoWrap} onPress={takePhoto}>
+              <FontAwesome name="camera" size={24} color="#bdbdbd" />
+            </TouchableOpacity>
+          </View>
+        </Camera>
+
+        <Text style={styles.photoLoad}>Завантажте фото</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 
