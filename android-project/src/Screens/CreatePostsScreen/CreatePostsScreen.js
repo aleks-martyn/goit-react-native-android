@@ -129,18 +129,18 @@ const styles = StyleSheet.create({
     height: "100%",
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 10,
+    paddingTop: 30,
     backgroundColor: "#fff",
   },
   camera: {
-    height: 200,
+    height: 240,
     marginBottom: 5,
   },
   photoView: {
     position: "relative",
     flex: 1,
-    width: 288,
-    height: 180,
+    width: 343,
+    height: 240,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "transparent",
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
   takePhotoWrap: {
     width: 60,
     height: 60,
+    borderRadius: 50,
     backgroundColor: "rgba(255, 255, 255, 0.3)",
     alignItems: "center",
     justifyContent: "center",
@@ -203,8 +204,8 @@ const styles = StyleSheet.create({
   },
   flipContainer: {
     position: "absolute",
-    bottom: 10,
-    right: 10,
+    bottom: 15,
+    right: 0,
     flex: 1,
   },
 });
