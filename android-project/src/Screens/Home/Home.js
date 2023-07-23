@@ -11,7 +11,7 @@ const Tab = createBottomTabNavigator();
 
 export default function Home() {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
+//  const dispatch = useDispatch();
 
   return <></>;
 }
