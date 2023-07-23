@@ -92,6 +92,32 @@ export default function CreatePostsScreen() {
         </Camera>
 
         <Text style={styles.photoLoad}>Завантажте фото</Text>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+          <TextInput
+            value={name}
+            onChangeText={setName}
+            style={styles.nameInput}
+            placeholder="Назва..."
+            placeholderTextColor="#bdbdbd"
+          />
+          <View style={styles.locationInputWrap}>
+            <TextInput
+              value={nameLocation}
+              onChangeText={setNameLocation}
+              style={styles.locationInput}
+              placeholder="Місцевість..."
+              placeholderTextColor="#bdbdbd"
+            />
+            <Feather
+              name="map-pin"
+              size={24}
+              color="#bdbdbd"
+              style={styles.locationIcon}
+            />
+          </View>
+        </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
   );
