@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function PostsScreen() {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
+//  const dispatch = useDispatch();
 
   return (
     <View>
