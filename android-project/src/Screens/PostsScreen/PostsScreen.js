@@ -36,4 +36,44 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: "#fff",
   },
+  itemWrap: {
+    marginTop: 10,
+    marginBottom: 34,
+  },
+  photo: {
+    width: 288,
+    height: 180,
+    marginBottom: 8,
+    borderRadius: 8,
+  },
+  infoWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  commentsWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  locationWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    justifyContent: 'flex-end',
+  },
+  nameWrap: {
+    flex: 1,
+    marginBottom: 11,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  commentsText: {
+    color: '#212121',
+  },
+  nameLocationText: {
+    color: '#212121',
+  },
 });
