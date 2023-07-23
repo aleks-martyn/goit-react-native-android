@@ -33,6 +33,7 @@ export default function ProfileScreen() {
               backgroundColor="#fff"
             />
           </TouchableOpacity>
+          <Text style={styles.title}>{"user" ?? 'underfined'}</Text>
         </View>
       </ImageBackground>
     </View>
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
   wrap: {
     position: "relative",
     width: "100%",
-    height: 400,
+    height: 550,
     paddingTop: 70,
     paddingHorizontal: 16,
     backgroundColor: "#fff",
@@ -72,5 +73,55 @@ const styles = StyleSheet.create({
     height: 120,
     backgroundColor: "#f6f6f6",
     borderRadius: 16,
+  },
+  logOutBtn: {
+    position: 'absolute',
+    top: 15,
+    right: 15,
+  },
+  title: {
+    marginBottom: 15,
+    fontSize: 30,
+    letterSpacing: 0.01,
+    lineHeight: 35.16,
+    textAlign: 'center',
+    color: '#212121',
+  },
+  itemWrap: {
+    marginTop: 10,
+    marginBottom: 34,
+  },
+  photo: {
+    width: 288,
+    height: 180,
+    marginBottom: 8,
+    borderRadius: 8,
+  },
+  infoWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  commentsWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  locationWrap: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    justifyContent: 'flex-end',
+  },
+  nameText: {
+    marginBottom: 11,
+  },
+  commentsText: {
+    color: '#212121',
+  },
+  nameLocationText: {
+    color: '#212121',
   },
 });
