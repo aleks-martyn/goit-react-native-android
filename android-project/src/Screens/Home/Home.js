@@ -69,7 +69,7 @@ export default function Home() {
             borderRadius: 50,
             marginTop: 9,
             marginRight: 10,
-            marginLeft: 20,
+            marginLeft: 25,
           },
         }}
       />
@@ -112,7 +112,7 @@ export default function Home() {
             height: 40,
             borderRadius: 50,
             marginTop: 9,
-            marginRight: 20,
+            marginRight: 25,
             marginLeft: 10,
           },
         }}
