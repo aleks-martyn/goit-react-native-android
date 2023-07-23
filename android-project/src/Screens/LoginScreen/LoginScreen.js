@@ -55,45 +55,47 @@ export default function LoginScreen() {
           resizeMode="cover"
           style={styles.image}
         >
-        <View style={styles.wrap}>
-          <Text style={styles.title}>Увійти</Text>
-          <View style={styles.form}>
-            <TextInput
-              style={[styles.input, customStyleMail]}
-              placeholder="Адреса електронної пошти"
-              value={email}
-              onChangeText={setEmail}
-              onFocus={() => setFocusMail(true)}
-              onBlur={() => setFocusMail(false)}
-              inputMode="email"
-            />
-            <TextInput
-              style={[styles.input, customStylePass]}
-              placeholder="Пароль"
-              value={password}
-              onChangeText={setPassword}
-              onFocus={() => setFocusPass(true)}
-              onBlur={() => {
-                setFocusPass(false);
-                setSecureTextEntry(true);
-                setShowText("Показати");
-              }}
-              secureTextEntry={secureTextEntry}
-            />
-            <TouchableOpacity style={styles.button} onPress={onLogin}>
-              <Text style={styles.textButton}>Увійти</Text>
+          <View style={styles.wrap}>
+            <Text style={styles.title}>Увійти</Text>
+            <View style={styles.form}>
+              <View>
+                <TextInput
+                  style={[styles.input, customStyleMail]}
+                  placeholder="Адреса електронної пошти"
+                  value={email}
+                  onChangeText={setEmail}
+                  onFocus={() => setFocusMail(true)}
+                  onBlur={() => setFocusMail(false)}
+                  inputMode="email"
+                />
+                <TextInput
+                  style={[styles.input, customStylePass]}
+                  placeholder="Пароль"
+                  value={password}
+                  onChangeText={setPassword}
+                  onFocus={() => setFocusPass(true)}
+                  onBlur={() => {
+                    setFocusPass(false);
+                    setSecureTextEntry(true);
+                    setShowText("Показати");
+                  }}
+                  secureTextEntry={secureTextEntry}
+                />
+                <TouchableOpacity style={styles.button} onPress={onLogin}>
+                  <Text style={styles.textButton}>Увійти</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity style={styles.showBtn} onPress={onPressShowBtn}>
+              <Text style={styles.textShowBtn}>{showText}</Text>
             </TouchableOpacity>
+            <TouchableOpacity onPress={onRegistration}>
+              <Text style={styles.textShowBtn}>
+                Немає акаунту? Зареєструватися
+              </Text>
+            </TouchableOpacity>
+            </View>
           </View>
-          <TouchableOpacity style={styles.showBtn} onPress={onPressShowBtn}>
-            <Text style={styles.textShowBtn}>{showText}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={onRegistration}>
-            <Text style={styles.textShowBtn}>
-              Немає акаунту? Зареєструватися
-            </Text>
-          </TouchableOpacity>
-          </View>
-          </ImageBackground>
+        </ImageBackground>
       </View>
     </TouchableWithoutFeedback>
   );
