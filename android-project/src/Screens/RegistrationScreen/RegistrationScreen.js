@@ -1,7 +1,6 @@
 import {
   ImageBackground,
   Image,
-  SafeAreaView,
   StyleSheet,
   Text,
   TextInput,
@@ -11,7 +10,7 @@ import {
   View,
   Alert,
 } from "react-native";
-import { useDispatch } from "react-redux";
+//import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
