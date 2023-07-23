@@ -86,13 +86,13 @@ export default function LoginScreen() {
                 </TouchableOpacity>
               </View>
               <TouchableOpacity style={styles.showBtn} onPress={onPressShowBtn}>
-              <Text style={styles.textShowBtn}>{showText}</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={onRegistration}>
-              <Text style={styles.textShowBtn}>
-                Немає акаунту? Зареєструватися
-              </Text>
-            </TouchableOpacity>
+                <Text style={styles.textShowBtn}>{showText}</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={onRegistration}>
+                <Text style={styles.textShowBtn}>
+                  Немає акаунту? Зареєструватися
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
         </ImageBackground>
