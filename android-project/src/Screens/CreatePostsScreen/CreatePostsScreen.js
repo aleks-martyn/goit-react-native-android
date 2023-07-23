@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+//import { useDispatch } from "react-redux";
 import { Camera } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
 import * as Location from "expo-location";
@@ -133,7 +133,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
   },
   camera: {
-    borderRadius: 8,
     height: 200,
     marginBottom: 5,
   },
@@ -149,7 +148,6 @@ const styles = StyleSheet.create({
   takePhotoWrap: {
     width: 60,
     height: 60,
-    borderRadius: 50,
     backgroundColor: "rgba(255, 255, 255, 0.3)",
     alignItems: "center",
     justifyContent: "center",
@@ -191,7 +189,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#f6f6f6",
     paddingVertical: 10,
     paddingHorizontal: 80,
-    borderRadius: 100,
   },
   publishBtnIsActive: {
     backgroundColor: "#ff6c00",
