@@ -9,13 +9,18 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
-//import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Feather } from "@expo/vector-icons";
+import { getAuth } from "firebase/auth";
 import BgImage from "../../images/PhotoBG.jpg";
+import { logOut } from "../../redux/auth/authOperations";
 
 export default function ProfileScreen() {
   const navigation = useNavigation();
-  //  const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   return (
     <View style={styles.container}>
@@ -23,7 +28,7 @@ export default function ProfileScreen() {
         <View style={styles.wrap}>
           <View style={styles.userPicture}></View>
           <TouchableOpacity
-            onPress={console.log("log out")}
+            onPress={() => dispatch(logOut())}
             style={styles.logOutBtn}
           >
             <Feather
@@ -33,7 +38,7 @@ export default function ProfileScreen() {
               backgroundColor="#fff"
             />
           </TouchableOpacity>
-          <Text style={styles.title}>{"user" ?? 'underfined'}</Text>
+          <Text style={styles.title}>{user.displayName ?? 'underfined'}</Text>
         </View>
       </ImageBackground>
     </View>
