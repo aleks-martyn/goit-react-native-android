@@ -16,6 +16,7 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Feather, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
+import { addPost } from "../../redux/posts/postsOperations";
 import { getAuth } from "firebase/auth";
 
 export default function CreatePostsScreen() {
@@ -71,8 +72,21 @@ export default function CreatePostsScreen() {
     );
   };
 
-  const onPublish = () => {
-    console.log("on publish");
+  const onPublish = async () => {
+    if (!photo) return;
+
+    try {
+      let location = await Location.getCurrentPositionAsync({});
+      const { uid, displayName } = getAuth().currentUser;
+      const post = { uid, photo, location, name, nameLocation, displayName };
+      await dispatch(addPost(post)).unwrap();
+      navigation.navigate("Posts", { post });
+      setName("");
+      setNameLocation("");
+      setPhoto(null);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -120,6 +134,14 @@ export default function CreatePostsScreen() {
             />
           </View>
         </KeyboardAvoidingView>
+        <TouchableOpacity
+          style={[styles.publishBtn, pablishBtnIsActive]}
+          onPress={onPublish}
+        >
+          <Text style={[styles.textPublishBtn, textPublishBtnIsActive]}>
+            Опублікувати
+          </Text>
+        </TouchableOpacity>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -192,6 +214,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f6f6f6",
     paddingVertical: 10,
     paddingHorizontal: 80,
+    borderRadius: 50,
   },
   publishBtnIsActive: {
     backgroundColor: "#ff6c00",
