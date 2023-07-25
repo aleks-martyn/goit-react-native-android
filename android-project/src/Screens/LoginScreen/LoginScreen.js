@@ -9,13 +9,19 @@ import {
   View,
   Alert,
 } from "react-native";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 import BgImage from "../../images/PhotoBG.jpg";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { logIn } from "../../redux/auth/authOperations";
+
+const auth = getAuth();
+const user = auth.currentUser;
 
 export default function LoginScreen() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const [focusMail, setFocusMail] = useState(false);
   const [focusPass, setFocusPass] = useState(false);
@@ -40,8 +46,21 @@ export default function LoginScreen() {
     }
   };
 
-  const onLogin = () => {
-    console.log("Log In");
+  const onLogin = async () => {
+    if (email === "" || password === "") {
+      Alert.alert("All fields are required!");
+      return;
+    }
+
+    try {
+      await dispatch(logIn({ email: email, password: password })).unwrap();
+      setEmail("");
+      setPassword("");
+      const user = auth.currentUser;
+    } catch (error) {
+      setError(error.message);
+      console.log(error.message);
+    }
   };
 
   const onRegistration = () => navigation.navigate("Registration");
