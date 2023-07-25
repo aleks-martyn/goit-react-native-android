@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Camera } from "expo-camera";
 import * as MediaLibrary from "expo-media-library";
 import * as Location from "expo-location";
@@ -16,9 +16,11 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { Feather, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
+import { getAuth } from "firebase/auth";
 
 export default function CreatePostsScreen() {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null);
