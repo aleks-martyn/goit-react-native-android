@@ -2,10 +2,15 @@ import { useNavigation } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import PostsScreen from "../PostsScreen/PostsScreen";
 import ProfileScreen from "../ProfileScreen/ProfileScreen";
 import CreatePostsScreen from "../CreatePostsScreen/CreatePostsScreen";
+import { getAuth } from "firebase/auth";
+import { useAuthentication } from "../../../utils/hooks/useAuthentication";
+import { logOut } from "../../redux/auth/authOperations";
+
+const auth = getAuth();
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +46,7 @@ const styleScreens = {
 
 export default function Home() {
   const navigation = useNavigation();
-  //  const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <Tab.Navigator initialRouteName="Posts" screenOptions={styleScreens}>
@@ -52,7 +57,7 @@ export default function Home() {
           title: "Публікації",
           headerTitleAlign: "center",
           headerRight: () => (
-            <TouchableOpacity onPress={console.log("log out")}>
+            <TouchableOpacity onPress={() => dispatch(logOut())}>
               <Feather.Button
                 name="log-out"
                 size={24}
