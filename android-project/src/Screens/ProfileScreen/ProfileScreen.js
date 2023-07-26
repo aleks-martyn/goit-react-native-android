@@ -14,13 +14,22 @@ import { Feather } from "@expo/vector-icons";
 import { getAuth } from "firebase/auth";
 import BgImage from "../../images/PhotoBG.jpg";
 import { logOut } from "../../redux/auth/authOperations";
+import { getAllPosts } from '../../redux/posts/postsOperations';
+import { selectUserPosts } from '../../redux/posts/postsSelectors';
 
 export default function ProfileScreen() {
   const navigation = useNavigation();
   const dispatch = useDispatch();
+  const userPosts = useSelector(selectUserPosts);
 
   const auth = getAuth();
   const user = auth.currentUser;
+
+  useFocusEffect(
+    useCallback(() => {
+      dispatch(getAllPosts()).unwrap();
+    }, [dispatch])
+  );
 
   return (
     <View style={styles.container}>
@@ -39,6 +48,45 @@ export default function ProfileScreen() {
             />
           </TouchableOpacity>
           <Text style={styles.title}>{user.displayName ?? 'underfined'}</Text>
+          <FlatList
+            data={userPosts}
+            keyExtractor={(_, index) => index.toString()}
+            renderItem={({ item }) => (
+              <View style={styles.itemWrap}>
+                <Image source={{ uri: item.photo }} style={styles.photo} />
+                <Text style={styles.nameText}>{item.name}</Text>
+                <View style={styles.infoWrap}>
+                  <TouchableOpacity
+                    style={styles.commentsWrap}
+                    onPress={() =>
+                      navigation.navigate('Comments', { uri: item.photo })
+                    }
+                  >
+                    <Feather
+                      name="message-circle"
+                      size={24}
+                      color={'#bdbdbd'}
+                    />
+                    <Text style={styles.commentsText}>Коментарі</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.locationWrap}
+                    onPress={() =>
+                      navigation.navigate('Map', {
+                        latitude: item.location.coords.latitude,
+                        longitude: item.location.coords.longitude,
+                      })
+                    }
+                  >
+                    <Feather name="map-pin" size={24} color="#bdbdbd" />
+                    <Text style={styles.nameLocationText}>
+                      {item.nameLocation}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+          />
         </View>
       </ImageBackground>
     </View>
@@ -65,7 +113,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 550,
     paddingTop: 70,
-    paddingHorizontal: 16,
+    paddingHorizontal: 25,
     backgroundColor: "#fff",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
@@ -97,8 +145,8 @@ const styles = StyleSheet.create({
     marginBottom: 34,
   },
   photo: {
-    width: 288,
-    height: 180,
+    width: 343,
+    height: 240,
     marginBottom: 8,
     borderRadius: 8,
   },
