@@ -83,6 +83,7 @@ export default function Home() {
         component={CreatePostsScreen}
         options={{
           title: "Створити публікацію",
+          unmountOnBlur: true,
           headerTitleAlign: "center",
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.navigate("Posts")}>
