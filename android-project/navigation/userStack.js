@@ -22,6 +22,7 @@ export default function UserStack() {
             title: "Коментарі",
             headerBackTitleVisible: false,
             headerTintColor: "#212121",
+            headerTitleAlign: "center",
           }}
         />
         <MainStack.Screen
@@ -32,6 +33,7 @@ export default function UserStack() {
             title: "Мапа",
             headerBackTitleVisible: false,
             headerTintColor: "#212121",
+            headerTitleAlign: "center",
           }}
         />
       </MainStack.Navigator>
